@@ -1,9 +1,8 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/italopatrick/api-opportunities/handler"
 )
 
 func initializeRoutes(router *gin.Engine) {
@@ -11,35 +10,15 @@ func initializeRoutes(router *gin.Engine) {
 
 	// Show opening
 	{
-		v1.GET("/opening", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "GET Opening",
-			})
-		})
+		v1.POST("/opening", handler.CreateOpeningHandler)
 
-		v1.POST("/opening", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "POST Opening",
-			})
-		})
+		v1.GET("/opening", handler.ShowOpeningHandler)
 
-		v1.DELETE("/opening", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "PUT Opening",
-			})
-		})
+		v1.DELETE("/opening", handler.DeleteOpeningHandler)
 
-		v1.PUT("/opening", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "PUT Opening",
-			})
-		})
+		v1.PUT("/opening", handler.UpdateOpeningHandler)
 
-		v1.GET("/openings", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "GET all Opening",
-			})
-		})
+		v1.GET("/openings", handler.ListOpeningsHandler)
 
 	}
 }
