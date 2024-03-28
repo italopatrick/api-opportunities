@@ -13,3 +13,12 @@ type Opening struct {
 	Link     string
 	Salary   int64
 }
+
+type OpeningResponse struct {
+	Role     string
+	Company  string
+	Location string
+	Remote   bool
+	Link     string
+	Salary   int64
+}
