@@ -1,15 +1,12 @@
 package handler
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
 func CreateOpeningHandler(ctx *gin.Context) {
-request := struct {
-	role string
+	request := CreateOpeningRequest{}
+	ctx.BindJSON(&request)
 
-}{}
+	logger.Infof("Request received: %+v", request)
 }
-	ctx.BindJSON()
