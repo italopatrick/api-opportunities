@@ -7,8 +7,9 @@ import (
 )
 
 func CreateOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"msg": "Post Opening",
-	})
+request := struct {
+	role string
 
+}{}
 }
+	ctx.BindJSON()
