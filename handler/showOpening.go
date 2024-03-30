@@ -27,7 +27,7 @@ func ShowOpeningHandler(ctx *gin.Context) {
 		return
 	}
 	opening := schemas.Opening{}
-	if err := db.First(&opening).Error; err != nil {
+	if err := db.Where("id = ?", id).First(&opening).Error; err != nil {
 		sendError(ctx, http.StatusNotFound, "opening not found")
 		return
 	}
